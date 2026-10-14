@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "author": "Jason Stys",
+  "recorded_at_utc": "2026-10-14 15:59:44 UTC",
+  "accepted_source_sha": "8b911602d00fa9a83f5f49634fbf79bfd1d8dca5",
+  "runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "8b911602d00fa9a83f5f49634fbf79bfd1d8dca5",
+      "id": 38593927252,
+      "jobs": [
+        {
+          "completed_at": "2026-10-14T15:57:58Z",
+          "conclusion": "success",
+          "id": 115955641516,
+          "name": "Locked graph + secret + workflow checks",
+          "started_at": "2026-10-14T15:57:43Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T15:58:09Z",
+          "conclusion": "success",
+          "id": 115955641763,
+          "name": "Python + SQL boundaries / ubuntu-24.04 / 3.14",
+          "started_at": "2026-10-14T15:57:43Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T15:58:44Z",
+          "conclusion": "success",
+          "id": 115955641851,
+          "name": "Python + SQL boundaries / windows-latest / 3.14",
+          "started_at": "2026-10-14T15:57:44Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T15:58:46Z",
+          "conclusion": "success",
+          "id": 115955642158,
+          "name": "Python + SQL boundaries / macos-15-intel / 3.14",
+          "started_at": "2026-10-14T15:57:45Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-10-14T15:58:03Z",
+          "conclusion": "success",
+          "id": 115955642226,
+          "name": "Python + SQL boundaries / ubuntu-24.04 / 3.12",
+          "started_at": "2026-10-14T15:57:43Z",
+          "status": "completed"
+        }
+      ],
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/ai-security-evaluation-lab/actions/runs/38593927252"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "8b911602d00fa9a83f5f49634fbf79bfd1d8dca5",
+      "id": 38593927207,
+      "jobs": [
+        {
+          "completed_at": "2026-10-14T15:58:29Z",
+          "conclusion": "success",
+          "id": 115955640643,
+          "name": "CodeQL / Python",
+          "started_at": "2026-10-14T15:57:43Z",
+          "status": "completed"
+        }
+      ],
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/ai-security-evaluation-lab/actions/runs/38593927207"
+    }
+  ],
+  "local_validation": {
+    "platform": "Windows",
+    "python": "3.14.6",
+    "tests_passed": 51,
+    "runtime_statement_branch_coverage_percent": 100,
+    "statements": 367,
+    "branches": 106,
+    "hypothesis_examples_per_property": 200,
+    "properties": 2
+  },
+  "browser_smoke": {
+    "case_rows": 42,
+    "scripts": 0,
+    "external_assets": 0,
+    "scoped_column_headers": 7,
+    "scope": "Local generated inert report; not a full accessibility or cross-browser audit"
+  },
+  "security": {
+    "open_codeql_alerts": 0,
+    "actions_artifacts": 0,
+    "actions_caches": 0,
+    "note": "Read-only counters after accepted source workflows completed; not a billing/quota claim"
+  },
+  "limits": "Synthetic response replay only. No real model inference or provider calls. Final documentation commit must be checked separately; this immutable snapshot describes accepted_source_sha."
+}

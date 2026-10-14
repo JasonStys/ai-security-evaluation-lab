@@ -62,6 +62,10 @@ Regenerate source-line headers with `python scripts/code_map.py`, stage reviewed
 
 Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](https://www.linkedin.com/in/jason-stys-31b30b351/). MIT-licensed authored code and synthetic fixtures. External research retains its own licensing. No affiliation, certification, clearance or production approval is implied.
 
+## Validated evidence
+
+51 tests; 100% combined statement/branch coverage across all six runtime modules; 42 synthetic policy oracles matched. All six accepted-source CI jobs passed. [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
+
 ## Complete file inventory
 
 <!-- BEGIN FILE GUIDE -->
@@ -86,6 +90,9 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/contracts.md](docs/contracts.md) | Case, response and snapshot contracts. |
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
+| [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded offline evaluation timing and memory, not model latency. |
+| [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
+| [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
 | [docs/security.md](docs/security.md) | Threat model and security limits. |
 | [docs/testing.md](docs/testing.md) | Testing and grading strategy. |
