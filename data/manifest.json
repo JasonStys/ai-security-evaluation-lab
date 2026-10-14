@@ -1,0 +1,10 @@
+{
+  "author": "Jason Stys",
+  "license": "MIT",
+  "source": "authored synthetic data-only responses",
+  "cases": 42,
+  "bytes": 29780,
+  "sha256": "0f3d9bbd4022a0d0e0fb18ce618e174ff08b85ae291ec5dd16e2e5569dfa5406",
+  "model_executed": false,
+  "seed": "none; deterministic authored fixtures"
+}

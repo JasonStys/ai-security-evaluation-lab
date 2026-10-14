@@ -1,0 +1,26 @@
+# Jason Stys: strict all-runtime-module checks with branch coverage; no runtime dependencies.
+[project]
+name = "ai-security-evaluation-lab"
+version = "1.0.0"
+description = "Offline AI security boundary evaluation and reproducible evidence by Jason Stys"
+requires-python = ">=3.12"
+dependencies = []
+[tool.ruff]
+target-version = "py312"
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+[tool.mypy]
+strict = true
+python_version = "3.12"
+files = ["aisec"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"
+filterwarnings = ["error"]
+[tool.coverage.run]
+branch = true
+source = ["aisec"]
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
