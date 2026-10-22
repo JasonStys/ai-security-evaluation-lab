@@ -93,6 +93,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded offline evaluation timing and memory, not model latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
+| [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
 | [docs/security.md](docs/security.md) | Threat model and security limits. |
 | [docs/testing.md](docs/testing.md) | Testing and grading strategy. |
