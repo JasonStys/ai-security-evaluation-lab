@@ -1,22 +1,24 @@
 """Jason Stys: offline evaluate and snapshot-template commands; no network, API key, service or arbitrary code execution."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# definition: main — line 34
-# parameter: argv — line 34
-# variable: parser — line 36
-# variable: commands — line 39
-# variable: evaluate — line 40
-# variable: template — line 46
-# variable: args — line 51
-# variable: cases — line 53
-# variable: corpus_sha — line 53
-# variable: lines — line 55
-# variable: case — line 65
-# variable: snapshot_sha — line 70
-# variable: snapshots — line 70
-# variable: report — line 73
-# variable: report_id — line 74
-# variable: mismatches — line 75
-# variable: row — line 75
+# definition: main — line 37
+# parameter: argv — line 37
+# variable: parser — line 39
+# variable: commands — line 42
+# variable: evaluate — line 43
+# variable: template — line 49
+# variable: comparison — line 54
+# variable: args — line 61
+# variable: paired — line 64
+# variable: cases — line 75
+# variable: corpus_sha — line 75
+# variable: lines — line 77
+# variable: case — line 87
+# variable: snapshot_sha — line 92
+# variable: snapshots — line 92
+# variable: report — line 95
+# variable: report_id — line 96
+# variable: mismatches — line 97
+# variable: row — line 97
 # END CODE MAP
 
 from __future__ import annotations
@@ -26,6 +28,7 @@ import json
 import sys
 from pathlib import Path
 
+from aisec.compare import compare, publish
 from aisec.contracts import ContractError, canonical, digest, load_cases, load_snapshots
 from aisec.evaluate import run
 from aisec.evidence import save, write_private
@@ -48,8 +51,27 @@ def main(argv: list[str] | None = None) -> int:
     )
     template.add_argument("--cases", type=Path, default=Path("data/cases.jsonl"))
     template.add_argument("--out", type=Path, required=True)
+    comparison = commands.add_parser(
+        "compare", help="Paired same-case response snapshot review; no model calls"
+    )
+    comparison.add_argument("--cases", type=Path, default=Path("data/cases.jsonl"))
+    comparison.add_argument("--baseline", type=Path, required=True)
+    comparison.add_argument("--candidate", type=Path, required=True)
+    comparison.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
+        if args.command == "compare":
+            paired = compare(args.cases, args.baseline, args.candidate)
+            publish(paired, args.out)
+            print(
+                json.dumps(
+                    {
+                        "cases": len(paired["cases"]),
+                        "review_items": len(paired["review_queue"]),
+                    }
+                )
+            )
+            return 0
         cases, corpus_sha = load_cases(args.cases)
         if args.command == "snapshot-template":
             lines = [

@@ -27,6 +27,17 @@ Open `out/first-evaluation/evaluation.html` in a browser. The same directory con
 
 Accepted text is **not** evidence of factual correctness or task success. Only instrumented dummy tool execution is counted as completed. This lab does not test inference, multimodal attacks, training-data poisoning or real downstream services.
 
+## Compare response snapshots
+
+```console
+python -m aisec.cli snapshot-template --out out/baseline.jsonl
+python -m aisec.cli compare --baseline out/baseline.jsonl --candidate out/candidate.jsonl --out out/paired-review
+```
+
+Start with a private copy of the template for an explicitly labeled candidate snapshot. Both sides must bind every submitted record to the exact same reviewed case digest. The current broker evaluates each side independently with fresh dummy approval state. `comparison.html` and JSON show case-level decision changes, unsafe-allow increases, benign availability/tool-completion losses, oracle recovery/regression and observation loss. Objective denominators count only cases observed on **both** sides; missing/error/timeout/unsupported records remain inconclusive and enter the review queue.
+
+Original per-objective metrics for each full snapshot remain alongside paired counts. No aggregate model ranking is inferred. Labels are asserted metadata, not authenticated provider identity; raw responses/messages and approval keys never appear in reports. This compares authored/imported data only and makes no model, paid API or real downstream tool call. Output must be new and unlinked; context drift cannot be accepted by changing a candidate's case digest.
+
 ## Documentation
 
 - [Usage and troubleshooting](docs/usage.md)
@@ -64,7 +75,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 ## Validated evidence
 
-51 tests; 100% combined statement/branch coverage across all six runtime modules; 42 synthetic policy oracles matched. All six accepted-source CI jobs passed. [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
+The original accepted-source baseline recorded51 tests and42 matching synthetic policy oracles. The November9 paired-review update locally passes54 tests at100% combined statement/branch coverage across all runtime modules; hosted acceptance remains separate. [Paired-review validation](docs/reports/paired-review-2026-11-09.md). [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
 
 ## Complete file inventory
 
@@ -81,6 +92,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [aisec/\_\_init\_\_.py](aisec/__init__.py) | Jason Stys: offline security evaluation package; importing it performs no I/O. |
 | [aisec/boundary.py](aisec/boundary.py) | Jason Stys: fail-closed in-memory tool broker, exact single-use approvals and bounded output validation. |
 | [aisec/cli.py](aisec/cli.py) | Jason Stys: offline evaluate and snapshot-template commands; no network, API key, service or arbitrary code execution. |
+| [aisec/compare.py](aisec/compare.py) | Jason Stys: case-digest-bound paired response snapshot review with explicit benign and telemetry regressions. |
 | [aisec/contracts.py](aisec/contracts.py) | Jason Stys: bounded strict JSON contracts for synthetic cases and untrusted response snapshots. |
 | [aisec/evaluate.py](aisec/evaluate.py) | Jason Stys: paired response-replay evaluation with per-objective rates and honest inconclusive outcomes. |
 | [aisec/evidence.py](aisec/evidence.py) | Jason Stys: private exclusive evidence outputs, inert escaped HTML and parameterized append-only SQL. |
@@ -93,6 +105,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded offline evaluation timing and memory, not model latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
+| [docs/reports/paired-review-2026-11-09.md](docs/reports/paired-review-2026-11-09.md) | Paired response snapshot validation — November 9, 2026. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
 | [docs/security.md](docs/security.md) | Threat model and security limits. |
@@ -110,6 +123,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: tracked-source privacy, dependency/pin/cache policy, exact links and synthetic corpus provenance gates. |
 | [sql/schema.sql](sql/schema.sql) | Jason Stys: metadata-only append-only evaluation ledger, constrained outcomes and objective lookup. |
 | [tests/test\_boundary.py](tests/test_boundary.py) | Jason Stys: real broker state, exact approval integrity, replay, concurrency and output-shape regressions. |
+| [tests/test\_compare.py](tests/test_compare.py) | Jason Stys: same-case paired snapshot policy/availability/telemetry review oracles. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Jason Stys: strict ingestion, byte/record bounds, duplicate-key rejection and snapshot provenance tests. |
 | [tests/test\_evaluation.py](tests/test_evaluation.py) | Jason Stys: paired grading, missing telemetry, imported-response approval substitution and metric denominator tests. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: end-to-end CLI, no-overwrite privacy, inert HTML, SQLite constraints and immutable ledger tests. |
