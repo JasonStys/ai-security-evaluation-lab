@@ -1,23 +1,23 @@
 """Jason Stys: tracked-source privacy, dependency/pin/cache policy, exact links and synthetic corpus provenance gates."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: ROOT — line 33
-# definition: main — line 39
-# variable: names — line 41
-# variable: name — line 56
-# variable: path — line 57
-# variable: text — line 60
-# variable: target — line 65
-# variable: action — line 75
-# variable: word — line 79
-# variable: codeql — line 85
-# variable: cases — line 95
-# variable: sha — line 95
-# variable: raw — line 96
-# variable: case — line 97
-# variable: manifest — line 98
-# variable: name — line 105
-# variable: source — line 106
-# variable: token — line 109
+# variable: ROOT — line 38
+# definition: main — line 44
+# variable: names — line 46
+# variable: name — line 61
+# variable: path — line 62
+# variable: text — line 65
+# variable: target — line 70
+# variable: action — line 80
+# variable: word — line 84
+# variable: codeql — line 90
+# variable: cases — line 100
+# variable: sha — line 100
+# variable: raw — line 101
+# variable: case — line 102
+# variable: manifest — line 103
+# variable: name — line 110
+# variable: source — line 111
+# variable: token — line 114
 # END CODE MAP
 
 from __future__ import annotations
@@ -29,6 +29,11 @@ import subprocess
 import sys
 import tomllib
 from pathlib import Path
+
+if __package__:
+    from .publication_text import public_text
+else:
+    from publication_text import public_text
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -57,7 +62,7 @@ def main() -> None:
         path = ROOT / name
         assert path.is_file() and not name.startswith(("out/", ".venv/", ".tools/"))
         assert not re.search(r"\.(?:pem|key|env|sqlite)(?:$|[.-])", name)
-        text = path.read_text(encoding="utf-8")
+        text = public_text(path, ROOT)
         assert not re.search(
             r"(?:ghp_|github_pat_)[A-Za-z0-9]{20,}|BEGIN [A-Z ]*PRIVATE KEY", text
         )

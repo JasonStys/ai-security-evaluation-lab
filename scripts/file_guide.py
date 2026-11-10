@@ -4,27 +4,27 @@
 # variable: BEGIN — line 36
 # variable: END — line 36
 # variable: SPECIAL — line 37
-# definition: purpose — line 51
-# parameter: name — line 51
-# variable: text — line 55
-# variable: lines — line 60
-# variable: index — line 61
-# variable: line — line 61
-# variable: description — line 63
-# variable: continuation — line 65
-# variable: description — line 71
-# definition: main — line 76
-# variable: parser — line 78
-# variable: args — line 80
-# variable: names — line 81
-# variable: rows — line 89
-# variable: name — line 90
-# variable: label — line 91
-# variable: path — line 93
-# variable: original — line 94
-# variable: end — line 95
-# variable: start — line 95
-# variable: expected — line 96
+# definition: purpose — line 53
+# parameter: name — line 53
+# variable: text — line 57
+# variable: lines — line 62
+# variable: index — line 63
+# variable: line — line 63
+# variable: description — line 65
+# variable: continuation — line 67
+# variable: description — line 73
+# definition: main — line 78
+# variable: parser — line 80
+# variable: args — line 82
+# variable: names — line 83
+# variable: rows — line 91
+# variable: name — line 92
+# variable: label — line 93
+# variable: path — line 95
+# variable: original — line 96
+# variable: end — line 97
+# variable: start — line 97
+# variable: expected — line 98
 # END CODE MAP
 
 import argparse
@@ -35,6 +35,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "docs/reports/project-guide.docx": "Reviewed source-bound Word guide with dated validation observations and practical limits.",
+    "docs/reports/publications.json": "Exact publication hashes, reviewed page identities and source/evidence baselines.",
     ".gitignore": "Exclude private diagnostics, builds, environments and generated fuzz artifacts.",
     ".gitattributes": "Consistent LF text checkouts across operating systems.",
     "LICENSE": "MIT license for Jason Stys's authored code.",
