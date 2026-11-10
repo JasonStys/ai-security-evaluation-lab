@@ -75,7 +75,7 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 ## Validated evidence
 
-The original accepted-source baseline recorded51 tests and42 matching synthetic policy oracles. The November9 paired-review update locally passes54 tests at100% combined statement/branch coverage across all runtime modules; hosted acceptance remains separate. [Paired-review validation](docs/reports/paired-review-2026-11-09.md). [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
+The original accepted-source baseline recorded 51 tests and 42 matching synthetic policy oracles. The November 9 paired-review update locally passes 54 tests at 100% combined statement/branch coverage across all runtime modules; hosted acceptance remains separate. [Paired-review validation](docs/reports/paired-review-2026-11-09.md). [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
 
 ## Complete file inventory
 
@@ -101,12 +101,16 @@ The original accepted-source baseline recorded51 tests and42 matching synthetic 
 | [docs/architecture.md](docs/architecture.md) | Architecture and technology decisions. |
 | [docs/contracts.md](docs/contracts.md) | Case, response and snapshot contracts. |
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
+| [docs/handbook.md](docs/handbook.md) | AI Security Evaluation Lab handbook. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded offline evaluation timing and memory, not model latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
+| [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
 | [docs/reports/paired-review-2026-11-09.md](docs/reports/paired-review-2026-11-09.md) | Paired response snapshot validation — November 9, 2026. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
+| [docs/reports/publications.json](docs/reports/publications.json) | Exact publication hashes, reviewed page identities and source/evidence baselines. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
 | [docs/security.md](docs/security.md) | Threat model and security limits. |
 | [docs/testing.md](docs/testing.md) | Testing and grading strategy. |
@@ -119,6 +123,7 @@ The original accepted-source baseline recorded51 tests and42 matching synthetic 
 | [scripts/code\_map.py](scripts/code_map.py) | Jason Stys: exact Python AST definition/parameter/variable maps and SQL/workflow declaration line indexes. |
 | [scripts/corpus.py](scripts/corpus.py) | Jason Stys: regenerate the authored synthetic replay corpus and exact byte manifest; never collect external data. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Jason Stys: exact tracked-file README purpose inventory, unknown files fail rather than receive guesses. |
+| [scripts/publication\_text.py](scripts/publication_text.py) | Jason Stys: inspect only named reviewed Office editions without hiding their XML. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: tracked-source privacy, dependency/pin/cache policy, exact links and synthetic corpus provenance gates. |
 | [sql/schema.sql](sql/schema.sql) | Jason Stys: metadata-only append-only evaluation ledger, constrained outcomes and objective lookup. |
@@ -127,6 +132,13 @@ The original accepted-source baseline recorded51 tests and42 matching synthetic 
 | [tests/test\_contracts.py](tests/test_contracts.py) | Jason Stys: strict ingestion, byte/record bounds, duplicate-key rejection and snapshot provenance tests. |
 | [tests/test\_evaluation.py](tests/test_evaluation.py) | Jason Stys: paired grading, missing telemetry, imported-response approval substitution and metric denominator tests. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: end-to-end CLI, no-overwrite privacy, inert HTML, SQLite constraints and immutable ledger tests. |
+| [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
 
 <!-- END FILE GUIDE -->
+
+## Documentation editions
+
+Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
+
+[Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "project": "ai-security-evaluation-lab",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "8eaed87a77b787e95a54451c1529a9a184914d6e",
+  "sourceUrl": "https://github.com/JasonStys/ai-security-evaluation-lab/tree/8eaed87a77b787e95a54451c1529a9a184914d6e",
+  "functionalEvidenceBaseline": "8eaed87a77b787e95a54451c1529a9a184914d6e",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42711583356,
+      "event": "push",
+      "headSha": "8eaed87a77b787e95a54451c1529a9a184914d6e",
+      "name": "Validate",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/ai-security-evaluation-lab/actions/runs/42711583356"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42711583765,
+      "event": "push",
+      "headSha": "8eaed87a77b787e95a54451c1529a9a184914d6e",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/ai-security-evaluation-lab/actions/runs/42711583765"
+    }
+  ],
+  "summary": "Replay paired reviewed cases against current broker policy and separate unsafe allowance, benign availability, completion and oracle coverage.",
+  "rationale": "Avoids conflating unavailable or unreviewed model behavior with a successful safety result.",
+  "limitations": [
+    "Evaluation replays authored/imported snapshots; it does not run an inference provider or real downstream tool actions.",
+    "Model labels are supplied assertions rather than authenticated model identities; there is no aggregate model ranking.",
+    "Accepted-text semantics can remain ungraded, and a finite reviewed corpus does not prove universal model security."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 43211,
+      "sha256": "e61719ee4790d408fea493ca99918f6f64a7cf77e2766d553e62d8eb2a3c1979",
+      "sourceBaseline": "8eaed87a77b787e95a54451c1529a9a184914d6e",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 4,
+        "renderedPageSha256": {
+          "page-1.png": "30848997ca3c2ab7baa902823e0f181a40a759c079954912720e779a471f61ea",
+          "page-2.png": "3d789def889ef5af79e6b776290a35b9f92dc6087b76a1eb941e397419805af9",
+          "page-3.png": "0b861d917f94adfbff9b7c4fdaf79ecf0f17612cd6d064b6063685f08ab92652",
+          "page-4.png": "126b1007a572e6d93a3ec5d35caead738a9605cc908911ada2c25e13866734ef"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
