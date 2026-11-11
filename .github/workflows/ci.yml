@@ -1,60 +1,81 @@
 # Jason Stys: cross-platform tests, bounded replay evaluation, performance and locked security gates; no artifacts/caches.
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# parameter: name — line 59
-# parameter: on — line 60
-# parameter: push — line 61
-# parameter: branches — line 62
-# parameter: pull_request — line 63
-# parameter: workflow_dispatch — line 64
-# parameter: permissions — line 65
-# parameter: contents — line 66
-# parameter: concurrency — line 67
-# parameter: group — line 68
-# parameter: cancel-in-progress — line 69
-# parameter: jobs — line 70
-# parameter: quality — line 71
-# parameter: name — line 72
-# parameter: runs-on — line 73
-# parameter: timeout-minutes — line 74
-# parameter: strategy — line 75
-# parameter: fail-fast — line 76
-# parameter: matrix — line 77
-# parameter: include — line 78
-# parameter: steps — line 83
-# parameter: uses — line 84
-# parameter: with — line 85
-# parameter: persist-credentials — line 86
-# parameter: uses — line 87
-# parameter: with — line 88
-# parameter: python-version — line 89
-# parameter: run — line 90
-# parameter: run — line 91
-# parameter: run — line 92
-# parameter: run — line 93
-# parameter: run — line 94
-# parameter: run — line 95
-# parameter: run — line 96
-# parameter: run — line 97
-# parameter: run — line 98
-# parameter: run — line 99
-# parameter: security — line 100
-# parameter: name — line 101
-# parameter: runs-on — line 102
-# parameter: timeout-minutes — line 103
-# parameter: steps — line 104
-# parameter: uses — line 105
-# parameter: with — line 106
-# parameter: persist-credentials — line 107
-# parameter: fetch-depth — line 108
-# parameter: uses — line 109
-# parameter: with — line 110
-# parameter: python-version — line 111
-# parameter: run — line 112
-# parameter: run — line 113
-# parameter: run — line 114
-# parameter: run — line 115
-# parameter: run — line 116
-# parameter: run — line 117
+# parameter: name — line 80
+# parameter: on — line 81
+# parameter: push — line 82
+# parameter: branches — line 83
+# parameter: pull_request — line 84
+# parameter: workflow_dispatch — line 85
+# parameter: permissions — line 86
+# parameter: contents — line 87
+# parameter: concurrency — line 88
+# parameter: group — line 89
+# parameter: cancel-in-progress — line 90
+# parameter: jobs — line 91
+# parameter: portable-windows — line 92
+# parameter: name — line 93
+# parameter: runs-on — line 94
+# parameter: timeout-minutes — line 95
+# parameter: steps — line 96
+# parameter: uses — line 97
+# parameter: with — line 98
+# parameter: persist-credentials — line 99
+# parameter: uses — line 100
+# parameter: with — line 101
+# parameter: python-version — line 102
+# parameter: name — line 103
+# parameter: run — line 104
+# parameter: run — line 105
+# parameter: run — line 106
+# parameter: run — line 107
+# parameter: name — line 108
+# parameter: run — line 109
+# parameter: quality — line 110
+# parameter: name — line 111
+# parameter: runs-on — line 112
+# parameter: timeout-minutes — line 113
+# parameter: strategy — line 114
+# parameter: fail-fast — line 115
+# parameter: matrix — line 116
+# parameter: include — line 117
+# parameter: steps — line 122
+# parameter: uses — line 123
+# parameter: with — line 124
+# parameter: persist-credentials — line 125
+# parameter: uses — line 126
+# parameter: with — line 127
+# parameter: python-version — line 128
+# parameter: name — line 129
+# parameter: if — line 130
+# parameter: run — line 131
+# parameter: run — line 132
+# parameter: run — line 133
+# parameter: run — line 134
+# parameter: run — line 135
+# parameter: run — line 136
+# parameter: run — line 137
+# parameter: run — line 138
+# parameter: run — line 139
+# parameter: run — line 140
+# parameter: run — line 141
+# parameter: security — line 142
+# parameter: name — line 143
+# parameter: runs-on — line 144
+# parameter: timeout-minutes — line 145
+# parameter: steps — line 146
+# parameter: uses — line 147
+# parameter: with — line 148
+# parameter: persist-credentials — line 149
+# parameter: fetch-depth — line 150
+# parameter: uses — line 151
+# parameter: with — line 152
+# parameter: python-version — line 153
+# parameter: run — line 154
+# parameter: run — line 155
+# parameter: run — line 156
+# parameter: run — line 157
+# parameter: run — line 158
+# parameter: run — line 159
 # END CODE MAP
 name: Validate
 on:
@@ -68,6 +89,24 @@ concurrency:
   group: validate-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  portable-windows:
+    name: Windows / actual offline GUI executable
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.14.10'
+      - name: Install exact reviewed development and native-build hashes
+        run: python -m pip install --require-hashes -r requirements-dev.lock -r requirements-native.lock
+      - run: python -m pip check
+      - run: python -m pip_audit -r requirements-native.lock --disable-pip --no-deps
+      - run: python scripts/build_native.py
+      - name: Actual Tk controls, independent core oracles, exact export, two processes and durable reopen
+        run: python scripts/test_native_app.py
   quality:
     name: Python + SQL boundaries / ${{ matrix.os }} / ${{ matrix.python }}
     runs-on: ${{ matrix.os }}
@@ -87,6 +126,9 @@ jobs:
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: ${{ matrix.python }}
+      - name: Source Tk imports on disposable Linux worker
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y libtk8.6
       - run: python -m pip install --require-hashes -r requirements-dev.lock
       - run: python -m ruff check .
       - run: python -m ruff format --check .

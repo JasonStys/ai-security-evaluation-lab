@@ -4,27 +4,27 @@
 # variable: BEGIN — line 36
 # variable: END — line 36
 # variable: SPECIAL — line 37
-# definition: purpose — line 53
-# parameter: name — line 53
-# variable: text — line 57
-# variable: lines — line 62
-# variable: index — line 63
-# variable: line — line 63
-# variable: description — line 65
-# variable: continuation — line 67
-# variable: description — line 73
-# definition: main — line 78
-# variable: parser — line 80
-# variable: args — line 82
-# variable: names — line 83
-# variable: rows — line 91
-# variable: name — line 92
-# variable: label — line 93
-# variable: path — line 95
-# variable: original — line 96
-# variable: end — line 97
-# variable: start — line 97
-# variable: expected — line 98
+# definition: purpose — line 59
+# parameter: name — line 59
+# variable: text — line 63
+# variable: lines — line 68
+# variable: index — line 69
+# variable: line — line 69
+# variable: description — line 71
+# variable: continuation — line 73
+# variable: description — line 79
+# definition: main — line 84
+# variable: parser — line 86
+# variable: args — line 88
+# variable: names — line 89
+# variable: rows — line 97
+# variable: name — line 98
+# variable: label — line 99
+# variable: path — line 101
+# variable: original — line 102
+# variable: end — line 103
+# variable: start — line 103
+# variable: expected — line 104
 # END CODE MAP
 
 import argparse
@@ -35,6 +35,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "requirements-native.lock": "Exact hash-locked Windows portable build graph; no runtime setup/download on user launch.",
+    "docs/licenses/tcl-9.0.4.txt": "Verbatim Tcl9.0.4 notice read from the actual verified Windows runtime zipfs.",
+    "docs/licenses/tk-9.0.4.txt": "Verbatim Tk9.0.4 notice read from the actual verified Windows runtime zipfs.",
+    "examples/desktop/baseline.jsonl": "Authored same-case baseline responses; fictional identity, not outputs from a live model.",
+    "examples/desktop/candidate.jsonl": "Authored same-case unsafe-allow and benign-completion regression responses, data only.",
+    "examples/desktop/partial.jsonl": "Authored missing/timeout observations that lower paired denominators and remain inconclusive.",
     "docs/reports/project-guide.docx": "Reviewed source-bound Word guide with dated validation observations and practical limits.",
     "docs/reports/publications.json": "Exact publication hashes, reviewed page identities and source/evidence baselines.",
     ".gitignore": "Exclude private diagnostics, builds, environments and generated fuzz artifacts.",

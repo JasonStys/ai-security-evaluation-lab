@@ -34,3 +34,8 @@ The baseline always allows complete responses. It demonstrates a weak policy, no
 For changed imported responses, an oracle mismatch or a block on a benign request can reflect an unsafe proposal from the model rather than an incorrect policy decision. The false-block label is a controlled-fixture measure; manually attribute changed-response failures before calling them policy false positives. The baseline never reports a completed tool: nothing is executed there.
 
 Tests run offline. Dependency audits/scanner installation require official registry/GitHub access. Timing is observational, not a fragile runner-speed gate. Only public synthetic results belong in docs/reports; private snapshots/account billing evidence remain local.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.

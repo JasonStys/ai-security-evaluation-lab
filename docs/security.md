@@ -38,3 +38,8 @@ There is no keyword-based injection classifier. Mentioning “ignore instruction
 Use dummy secrets and owned/authorized environments. Provider calls, cost, dataset consent and retention must be approved separately. Do not disclose real secrets to a model to test leakage.
 
 Report issues through [Jason Stys](https://github.com/JasonStys) without posting private inputs, keys, approvals or sensitive reports publicly. Passing CI is not a guarantee of security.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.

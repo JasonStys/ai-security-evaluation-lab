@@ -1,5 +1,9 @@
 # AI Security Evaluation Lab
 
+## Native Windows workbench
+
+The complete portable graphical app now accepts your supported authorized inputs and project parameters, runs the actual engines, preserves original findings, searches literal evidence, exports exact files and restores durable SQLite history. Prepared fictional cases are inside this same app. [Usage, privacy, workflow meanings and native validation](docs/native-workbench.md). No live model, host collection, enforcement or background upload is available. Created by Jason Stys; no release/installation is implied by a local candidate build.
+
 Created by **Jason Stys**. A reproducible, offline lab testing security boundaries around AI agents: narrow tool capabilities, tenant isolation, exact single-use approvals, response contracts, synthetic-canary disclosure and evidence integrity.
 
 This is a defensive portfolio project, not a jailbreak service or model-security certification. Supplied responses are authored fixtures, not outputs from a live LLM. The permissive baseline never executes a tool. The enforced broker validates proposals and updates only in-memory dummy counters.
@@ -94,6 +98,10 @@ The original accepted-source baseline recorded 51 tests and 42 matching syntheti
 | [aisec/cli.py](aisec/cli.py) | Jason Stys: offline evaluate and snapshot-template commands; no network, API key, service or arbitrary code execution. |
 | [aisec/compare.py](aisec/compare.py) | Jason Stys: case-digest-bound paired response snapshot review with explicit benign and telemetry regressions. |
 | [aisec/contracts.py](aisec/contracts.py) | Jason Stys: bounded strict JSON contracts for synthetic cases and untrusted response snapshots. |
+| [aisec/desktop.py](aisec/desktop.py) | Native offline workbench: real project inputs, analysis, searchable evidence, history and export. Jason Stys. |
+| [aisec/desktop\_io.py](aisec/desktop_io.py) | Bounded regular descriptor reads and strict finite JSON for owner-local desktop state. Jason Stys. |
+| [aisec/desktop\_project.py](aisec/desktop_project.py) | Actual data-only broker evaluation, response-template and paired-review graphical workflows. Jason Stys. |
+| [aisec/desktop\_state.py](aisec/desktop_state.py) | Owner-local desktop profile, bounded durable bundles and non-overwriting export. Jason Stys. |
 | [aisec/evaluate.py](aisec/evaluate.py) | Jason Stys: paired response-replay evaluation with per-objective rates and honest inconclusive outcomes. |
 | [aisec/evidence.py](aisec/evidence.py) | Jason Stys: private exclusive evidence outputs, inert escaped HTML and parameterized append-only SQL. |
 | [data/cases.jsonl](data/cases.jsonl) | Authored synthetic contexts, untrusted messages, proposed responses and policy oracles. |
@@ -102,11 +110,15 @@ The original accepted-source baseline recorded 51 tests and 42 matching syntheti
 | [docs/contracts.md](docs/contracts.md) | Case, response and snapshot contracts. |
 | [docs/contributing.md](docs/contributing.md) | Coding and contribution rules. |
 | [docs/handbook.md](docs/handbook.md) | AI Security Evaluation Lab handbook. |
+| [docs/licenses/tcl-9.0.4.txt](docs/licenses/tcl-9.0.4.txt) | Verbatim Tcl9.0.4 notice read from the actual verified Windows runtime zipfs. |
+| [docs/licenses/tk-9.0.4.txt](docs/licenses/tk-9.0.4.txt) | Verbatim Tk9.0.4 notice read from the actual verified Windows runtime zipfs. |
+| [docs/native-workbench.md](docs/native-workbench.md) | Native offline workbench. |
 | [docs/performance.md](docs/performance.md) | Complexity and performance methodology. |
 | [docs/reports/benchmark.json](docs/reports/benchmark.json) | Measured bounded offline evaluation timing and memory, not model latency. |
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
+| [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native AI security workbench validation. |
 | [docs/reports/paired-review-2026-11-09.md](docs/reports/paired-review-2026-11-09.md) | Paired response snapshot validation — November 9, 2026. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
@@ -116,23 +128,35 @@ The original accepted-source baseline recorded 51 tests and 42 matching syntheti
 | [docs/testing.md](docs/testing.md) | Testing and grading strategy. |
 | [docs/usage.md](docs/usage.md) | Usage and troubleshooting. |
 | [docs/validation.md](docs/validation.md) | Validation evidence. |
+| [examples/desktop/baseline.jsonl](examples/desktop/baseline.jsonl) | Authored same-case baseline responses; fictional identity, not outputs from a live model. |
+| [examples/desktop/candidate.jsonl](examples/desktop/candidate.jsonl) | Authored same-case unsafe-allow and benign-completion regression responses, data only. |
+| [examples/desktop/partial.jsonl](examples/desktop/partial.jsonl) | Authored missing/timeout observations that lower paired denominators and remain inconclusive. |
 | [pyproject.toml](pyproject.toml) | Jason Stys: strict all-runtime-module checks with branch coverage; no runtime dependencies. |
 | [requirements-dev.in](requirements-dev.in) | Jason Stys: exact development-only tools; Python runtime uses only the standard library. |
 | [requirements-dev.lock](requirements-dev.lock) | Universal full hash-locked Python development graph. |
+| [requirements-native.lock](requirements-native.lock) | Exact hash-locked Windows portable build graph; no runtime setup/download on user launch. |
 | [scripts/benchmark.py](scripts/benchmark.py) | Jason Stys: measure reproducible offline boundary-evaluation latency and Python allocation peaks, not model throughput. |
+| [scripts/build\_native.py](scripts/build_native.py) | Build the complete real offline workbench as one Windows portable executable. Jason Stys. |
 | [scripts/code\_map.py](scripts/code_map.py) | Jason Stys: exact Python AST definition/parameter/variable maps and SQL/workflow declaration line indexes. |
 | [scripts/corpus.py](scripts/corpus.py) | Jason Stys: regenerate the authored synthetic replay corpus and exact byte manifest; never collect external data. |
 | [scripts/file\_guide.py](scripts/file_guide.py) | Jason Stys: exact tracked-file README purpose inventory, unknown files fail rather than receive guesses. |
+| [scripts/native\_acceptance.py](scripts/native_acceptance.py) | Real frozen widget/core/history/export and honest failure-evidence acceptance. Jason Stys. |
+| [scripts/native\_entry.py](scripts/native_entry.py) | Launch the actual bundled offline project workbench; no setup shell commands. Jason Stys. |
 | [scripts/publication\_text.py](scripts/publication_text.py) | Jason Stys: inspect only named reviewed Office editions without hiding their XML. |
 | [scripts/scanners.py](scripts/scanners.py) | Install only hash-pinned official Linux scanner binaries. Created by Jason Stys. |
+| [scripts/test\_native\_app.py](scripts/test_native_app.py) | Run the real frozen workbench twice with an owned synthetic profile and exact bundle persistence. Jason Stys. |
 | [scripts/validate\_repo.py](scripts/validate_repo.py) | Jason Stys: tracked-source privacy, dependency/pin/cache policy, exact links and synthetic corpus provenance gates. |
 | [sql/schema.sql](sql/schema.sql) | Jason Stys: metadata-only append-only evaluation ledger, constrained outcomes and objective lookup. |
 | [tests/test\_boundary.py](tests/test_boundary.py) | Jason Stys: real broker state, exact approval integrity, replay, concurrency and output-shape regressions. |
 | [tests/test\_compare.py](tests/test_compare.py) | Jason Stys: same-case paired snapshot policy/availability/telemetry review oracles. |
 | [tests/test\_contracts.py](tests/test_contracts.py) | Jason Stys: strict ingestion, byte/record bounds, duplicate-key rejection and snapshot provenance tests. |
+| [tests/test\_desktop\_gui.py](tests/test_desktop_gui.py) | Presentation-adapter unit tests with real core/SQLite workers; real widgets are separately frozen-tested. Jason Stys. |
+| [tests/test\_desktop\_project.py](tests/test_desktop_project.py) | Independent metadata/privacy, exact paired-denominator and real custom-case adapter tests. Jason Stys. |
+| [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_evaluation.py](tests/test_evaluation.py) | Jason Stys: paired grading, missing telemetry, imported-response approval substitution and metric denominator tests. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: end-to-end CLI, no-overwrite privacy, inert HTML, SQLite constraints and immutable ledger tests. |
 | [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
+| [tests/test\_reader\_races.py](tests/test_reader_races.py) | Actual opened-device and POSIX regular-to-FIFO replacement regressions for bounded readers. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
 
 <!-- END FILE GUIDE -->
