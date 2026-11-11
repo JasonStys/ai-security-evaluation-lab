@@ -81,6 +81,14 @@ Jason Stys · [GitHub / contact](https://github.com/JasonStys) · [LinkedIn](htt
 
 The original accepted-source baseline recorded 51 tests and 42 matching synthetic policy oracles. The November 9 paired-review update locally passes 54 tests at 100% combined statement/branch coverage across all runtime modules; hosted acceptance remains separate. [Paired-review validation](docs/reports/paired-review-2026-11-09.md). [Measured evidence and scope](docs/validation.md) preserve exact run/source identities, outcomes and limits. Check [current Actions](https://github.com/JasonStys/ai-security-evaluation-lab/actions) for the current commit.
 
+## Native profile storage correction
+
+Version 1.1.1 rejects pre-existing linked/nonregular fixed profile and SQLite
+sidecar entries before initialization can write through an alias. Ordinary
+recovery files and existing profile schemas remain supported; no data is reset.
+See the [confirmed fixture, recovery tests and scope](docs/reports/profile-admission-2026-11-11.md).
+Earlier native releases and documentation retain their own dated evidence.
+
 ## Complete file inventory
 
 <!-- BEGIN FILE GUIDE -->
@@ -121,6 +129,7 @@ The original accepted-source baseline recorded 51 tests and 42 matching syntheti
 | [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native AI security workbench validation. |
 | [docs/reports/paired-review-2026-11-09.md](docs/reports/paired-review-2026-11-09.md) | Paired response snapshot validation — November 9, 2026. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
+| [docs/reports/profile-admission-2026-11-11.md](docs/reports/profile-admission-2026-11-11.md) | Fixed profile entry admission — November 11, 2026. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact publication hashes, reviewed page identities and source/evidence baselines. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
@@ -155,6 +164,7 @@ The original accepted-source baseline recorded 51 tests and 42 matching syntheti
 | [tests/test\_desktop\_state.py](tests/test_desktop_state.py) | Independent offline desktop ownership, byte-bound, SQLite and non-overwrite regressions. Jason Stys. |
 | [tests/test\_evaluation.py](tests/test_evaluation.py) | Jason Stys: paired grading, missing telemetry, imported-response approval substitution and metric denominator tests. |
 | [tests/test\_evidence\_cli.py](tests/test_evidence_cli.py) | Jason Stys: end-to-end CLI, no-overwrite privacy, inert HTML, SQLite constraints and immutable ledger tests. |
+| [tests/test\_profile\_admission.py](tests/test_profile_admission.py) | Actual pre-existing alias refusal and ordinary SQLite recovery continuity. Jason Stys. |
 | [tests/test\_publication\_text.py](tests/test_publication_text.py) | Jason Stys: actual Office ZIP fixtures retain text scanning and reject unknown content. |
 | [tests/test\_reader\_races.py](tests/test_reader_races.py) | Actual opened-device and POSIX regular-to-FIFO replacement regressions for bounded readers. Jason Stys. |
 | [tools.lock.json](tools.lock.json) | Official Linux scanner versions, URLs and SHA256 digests. |
