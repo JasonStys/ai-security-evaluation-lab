@@ -61,7 +61,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 PRODUCT = "ai-security-evaluation-lab"
 EXECUTABLE = "AiSecurityEvaluationLab.exe"
-VERSION = "1.1.0"
+VERSION = "1.1.1"
 
 
 def gone(pid: int) -> bool:

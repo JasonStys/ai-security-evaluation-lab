@@ -87,7 +87,7 @@ from .evidence import save
 
 ROOT = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1]))
 PRODUCT, PROFILE = "ai-security-evaluation-lab", "AiSecurityEvaluationLab"
-TITLE, VERSION = "AI Security Evaluation Workbench", "1.1.0"
+TITLE, VERSION = "AI Security Evaluation Workbench", "1.1.1"
 COLUMNS = (
     "Case / objective",
     "Policy / observation",
