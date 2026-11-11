@@ -1,75 +1,85 @@
 """Jason Stys: bounded strict JSON contracts for synthetic cases and untrusted response snapshots."""
 # BEGIN CODE MAP (generated; python scripts/code_map.py)
-# variable: MAX_FILE — line 85
-# variable: MAX_RECORD — line 86
-# variable: MAX_CASES — line 87
-# variable: MAX_TEXT — line 88
-# definition: ContractError — line 91
-# definition: object_pairs — line 95
-# parameter: pairs — line 95
-# variable: result — line 97
-# variable: key — line 98
-# variable: value — line 98
-# definition: nonfinite — line 105
-# parameter: value — line 105
-# definition: finite_float — line 110
-# parameter: value — line 110
-# variable: number — line 112
-# definition: parse — line 118
-# parameter: raw — line 118
-# variable: text — line 123
-# definition: canonical — line 137
-# parameter: value — line 137
-# definition: digest — line 144
-# parameter: value — line 144
-# definition: fields — line 149
-# parameter: expected — line 149
+# variable: MAX_FILE — line 97
+# variable: MAX_RECORD — line 98
+# variable: MAX_CASES — line 99
+# variable: MAX_TEXT — line 100
+# definition: ContractError — line 103
+# definition: object_pairs — line 107
+# parameter: pairs — line 107
+# variable: result — line 109
+# variable: key — line 110
+# variable: value — line 110
+# definition: nonfinite — line 117
+# parameter: value — line 117
+# definition: finite_float — line 122
+# parameter: value — line 122
+# variable: number — line 124
+# definition: parse — line 130
+# parameter: raw — line 130
+# variable: text — line 135
+# definition: canonical — line 149
 # parameter: value — line 149
-# definition: identifier — line 156
+# definition: digest — line 156
 # parameter: value — line 156
-# definition: bounded_text — line 163
-# parameter: value — line 163
-# definition: records — line 175
-# parameter: path — line 175
-# variable: stream — line 177
-# variable: raw — line 178
-# variable: lines — line 181
-# variable: line — line 182
-# variable: line — line 184
-# definition: Case — line 188
-# variable: id — line 191
-# variable: objective — line 192
-# variable: attack — line 193
-# variable: origin — line 194
-# variable: message — line 195
-# variable: scopes — line 196
-# variable: approval — line 197
-# variable: expected — line 198
-# variable: response — line 199
-# definition: from_json — line 202
-# parameter: cls — line 202
-# parameter: value — line 202
-# variable: data — line 204
-# variable: scopes — line 218
-# variable: scope — line 225
-# definition: load_cases — line 256
-# parameter: path — line 256
-# variable: data — line 258
-# variable: sha — line 258
-# variable: cases — line 259
-# variable: value — line 259
-# variable: case — line 260
-# definition: load_snapshots — line 265
-# parameter: cases — line 266
-# parameter: path — line 266
-# variable: data — line 269
-# variable: sha — line 269
-# variable: case — line 270
-# variable: known — line 270
-# variable: snapshots — line 271
-# variable: value — line 272
-# variable: record — line 273
-# variable: case_id — line 276
+# definition: fields — line 161
+# parameter: expected — line 161
+# parameter: value — line 161
+# definition: identifier — line 168
+# parameter: value — line 168
+# definition: bounded_text — line 175
+# parameter: value — line 175
+# definition: read_source — line 187
+# parameter: limit — line 187
+# parameter: path — line 187
+# variable: absolute — line 189
+# variable: item — line 192
+# variable: flags — line 195
+# variable: descriptor — line 201
+# variable: stream — line 202
+# variable: info — line 203
+# variable: named — line 204
+# variable: raw — line 212
+# definition: records — line 218
+# parameter: path — line 218
+# variable: raw — line 220
+# variable: lines — line 223
+# variable: line — line 224
+# variable: line — line 226
+# definition: Case — line 230
+# variable: id — line 233
+# variable: objective — line 234
+# variable: attack — line 235
+# variable: origin — line 236
+# variable: message — line 237
+# variable: scopes — line 238
+# variable: approval — line 239
+# variable: expected — line 240
+# variable: response — line 241
+# definition: from_json — line 244
+# parameter: cls — line 244
+# parameter: value — line 244
+# variable: data — line 246
+# variable: scopes — line 260
+# variable: scope — line 267
+# definition: load_cases — line 298
+# parameter: path — line 298
+# variable: data — line 300
+# variable: sha — line 300
+# variable: cases — line 301
+# variable: value — line 301
+# variable: case — line 302
+# definition: load_snapshots — line 307
+# parameter: cases — line 308
+# parameter: path — line 308
+# variable: data — line 311
+# variable: sha — line 311
+# variable: case — line 312
+# variable: known — line 312
+# variable: snapshots — line 313
+# variable: value — line 314
+# variable: record — line 315
+# variable: case_id — line 318
 # END CODE MAP
 
 from __future__ import annotations
@@ -77,7 +87,9 @@ from __future__ import annotations
 import hashlib
 import json
 import math
+import os
 import re
+import stat
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -172,10 +184,40 @@ def bounded_text(value: Any) -> str:
     return value
 
 
+def read_source(path: Path, limit: int) -> bytes:
+    """Read only bounded ordinary one-link bytes from one nonblocking descriptor; refuse reparse paths and replacements."""
+    absolute = path.absolute()
+    if any(
+        item.is_symlink() or item.is_junction()
+        for item in (absolute, *absolute.parents)
+    ):
+        raise ContractError("linked input path")
+    flags = (
+        os.O_RDONLY
+        | getattr(os, "O_BINARY", 0)
+        | getattr(os, "O_NOFOLLOW", 0)
+        | getattr(os, "O_NONBLOCK", 0)
+    )
+    descriptor = os.open(absolute, flags)
+    with os.fdopen(descriptor, "rb") as stream:
+        info = os.fstat(stream.fileno())
+        named = absolute.lstat()
+        if (
+            not stat.S_ISREG(info.st_mode)
+            or info.st_nlink != 1
+            or info.st_size > limit
+            or (named.st_dev, named.st_ino) != (info.st_dev, info.st_ino)
+        ):
+            raise ContractError("bounded ordinary unchanged input required")
+        raw = stream.read(limit + 1)
+        if len(raw) != info.st_size or len(raw) > limit:
+            raise ContractError("input changed or exceeded byte limit")
+    return raw
+
+
 def records(path: Path) -> tuple[list[Any], str]:
     """Read at most MAX_FILE+1 bytes and MAX_CASES JSONL records; return exact input SHA256."""
-    with path.open("rb") as stream:
-        raw = stream.read(MAX_FILE + 1)
+    raw = read_source(path, MAX_FILE)
     if len(raw) > MAX_FILE:
         raise ContractError("file too large")
     lines = raw.splitlines()

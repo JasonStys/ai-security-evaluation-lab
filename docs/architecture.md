@@ -31,3 +31,8 @@ Consequences: single-process dummy state, invalid approvals after restart, fail-
 ## ADR-004: data-only adapters
 
 No shell, URL fetch, arbitrary SQL or actual filesystem-mutating agent tools exist. Imported adapters are JSONL, not code. A model label is unverified provenance. Separate CI scanner installation is network-capable, restricted to official sources and pinned digests, and never accessible through the broker.
+
+
+## Native offline workbench 1.1.0
+
+[Actual graphical workflows, private owner-local storage, limits and Windows packaging](native-workbench.md). Existing CLI/domain/security gates remain. The native source adapter uses the actual project engines, not prerecorded results or a separate demo app; historical evidence stays bound to its original dated source.
