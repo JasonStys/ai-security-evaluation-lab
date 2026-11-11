@@ -4,27 +4,27 @@
 # variable: BEGIN — line 36
 # variable: END — line 36
 # variable: SPECIAL — line 37
-# definition: purpose — line 59
-# parameter: name — line 59
-# variable: text — line 63
-# variable: lines — line 68
-# variable: index — line 69
-# variable: line — line 69
-# variable: description — line 71
-# variable: continuation — line 73
-# variable: description — line 79
-# definition: main — line 84
-# variable: parser — line 86
-# variable: args — line 88
-# variable: names — line 89
-# variable: rows — line 97
-# variable: name — line 98
-# variable: label — line 99
-# variable: path — line 101
-# variable: original — line 102
-# variable: end — line 103
-# variable: start — line 103
-# variable: expected — line 104
+# definition: purpose — line 61
+# parameter: name — line 61
+# variable: text — line 65
+# variable: lines — line 70
+# variable: index — line 71
+# variable: line — line 71
+# variable: description — line 73
+# variable: continuation — line 75
+# variable: description — line 81
+# definition: main — line 86
+# variable: parser — line 88
+# variable: args — line 90
+# variable: names — line 91
+# variable: rows — line 99
+# variable: name — line 100
+# variable: label — line 101
+# variable: path — line 103
+# variable: original — line 104
+# variable: end — line 105
+# variable: start — line 105
+# variable: expected — line 106
 # END CODE MAP
 
 import argparse
@@ -35,6 +35,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BEGIN, END = "<!-- BEGIN FILE GUIDE -->", "<!-- END FILE GUIDE -->"
 SPECIAL = {
+    "docs/reports/windows-application-guide-1.1.1.docx": "Reviewed current 1.1.1 installed-app guide: actual screenshots, workflow, immutable code and measured limits.",
+    "docs/reports/windows-application-guide-1.1.1.json": "Current Word, screenshot, source and individually reviewed rendered-page hashes.",
     "requirements-native.lock": "Exact hash-locked Windows portable build graph; no runtime setup/download on user launch.",
     "docs/licenses/tcl-9.0.4.txt": "Verbatim Tcl9.0.4 notice read from the actual verified Windows runtime zipfs.",
     "docs/licenses/tk-9.0.4.txt": "Verbatim Tk9.0.4 notice read from the actual verified Windows runtime zipfs.",

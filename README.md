@@ -126,12 +126,15 @@ Earlier native releases and documentation retain their own dated evidence.
 | [docs/reports/ci.json](docs/reports/ci.json) | Immutable accepted-source CI snapshot, not a future guarantee. |
 | [docs/reports/documentation-refresh-2026-11-09.md](docs/reports/documentation-refresh-2026-11-09.md) | Documentation refresh — 2026-11-09. |
 | [docs/reports/evaluation.json](docs/reports/evaluation.json) | Actual baseline versus enforced-policy synthetic outcomes with denominators. |
+| [docs/reports/installed-windows-1.1.1-2026-11-11.md](docs/reports/installed-windows-1.1.1-2026-11-11.md) | Installed Windows 1.1.1 validation · 11 November 2026. |
 | [docs/reports/native-workbench-2026-11-10.md](docs/reports/native-workbench-2026-11-10.md) | Native AI security workbench validation. |
 | [docs/reports/paired-review-2026-11-09.md](docs/reports/paired-review-2026-11-09.md) | Paired response snapshot validation — November 9, 2026. |
 | [docs/reports/portfolio-sync-2026-10-22.md](docs/reports/portfolio-sync-2026-10-22.md) | <!-- File: docs/reports/portfolio-sync-2026-10-22.md; Purpose: certificate-bundle security repair and evidence by Jason Stys. -->. |
 | [docs/reports/profile-admission-2026-11-11.md](docs/reports/profile-admission-2026-11-11.md) | Fixed profile entry admission — November 11, 2026. |
 | [docs/reports/project-guide.docx](docs/reports/project-guide.docx) | Reviewed source-bound Word guide with dated validation observations and practical limits. |
 | [docs/reports/publications.json](docs/reports/publications.json) | Exact publication hashes, reviewed page identities and source/evidence baselines. |
+| [docs/reports/windows-application-guide-1.1.1.docx](docs/reports/windows-application-guide-1.1.1.docx) | Reviewed current 1.1.1 installed-app guide: actual screenshots, workflow, immutable code and measured limits. |
+| [docs/reports/windows-application-guide-1.1.1.json](docs/reports/windows-application-guide-1.1.1.json) | Current Word, screenshot, source and individually reviewed rendered-page hashes. |
 | [docs/research.md](docs/research.md) | Primary-source research and control mapping. |
 | [docs/security.md](docs/security.md) | Threat model and security limits. |
 | [docs/testing.md](docs/testing.md) | Testing and grading strategy. |
@@ -176,3 +179,7 @@ Earlier native releases and documentation retain their own dated evidence.
 Start with the [organized handbook](docs/handbook.md) for current usage, design, security and test guidance. Reviewed downloadable editions: [project-guide.docx](docs/reports/project-guide.docx).
 
 [Publication identities and source scope](docs/reports/publications.json) · [Documentation validation record](docs/reports/documentation-refresh-2026-11-09.md). Historical results retain their own tested revision and date.
+
+## Current Windows application guide
+
+The published **1.1.1** app has a [four-page illustrated guide](docs/reports/windows-application-guide-1.1.1.docx) with actual installed screenshots, a worked user journey, important source excerpts and practical limits. Read the [installed-app and upgrade results](docs/reports/installed-windows-1.1.1-2026-11-11.md) and [byte/page review manifest](docs/reports/windows-application-guide-1.1.1.json) for exact scope. Earlier Office editions remain historical and unchanged.
