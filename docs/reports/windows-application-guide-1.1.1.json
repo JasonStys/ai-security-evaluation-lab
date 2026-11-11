@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "repository": "ai-security-evaluation-lab",
+  "runtimeVersion": "1.1.1",
+  "runtimeSource": "ce8e0df93fd3efa581d5ae49805bf3f80c5608b1",
+  "createdAt": "2026-11-11T09:40:19.340Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-1.1.1.docx",
+  "sha256": "2789348e03c7e8b9ad5e661c03c860fe6abb30a4cd6bdf99f8a20f363a2147c4",
+  "screenshots": [
+    {
+      "file": "owner-unknown-review.png",
+      "sha256": "be853fd743a3323f2c0a0481d2a314b909a3072e97b10e76b928b550cca8f387",
+      "width": 1276,
+      "height": 899,
+      "caption": "A separate workflow in the same installed workbench preserves its original review state and evidence rather than replacing it with a generic success message."
+    },
+    {
+      "file": "selected-evidence.png",
+      "sha256": "1d1cadd7fb04d706804e3f5dbf91d704063dc449f05f2f8fd468b8c59c02c007",
+      "width": 1276,
+      "height": 899,
+      "caption": "The installed workbench displays its accepted analysis and selected original evidence. These are fictional test inputs, not collected production records."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "aisec/desktop_state.py",
+      "first": 217,
+      "last": 229,
+      "sha256": "6ea8717ed3942a11931326a12a9040b4ee1702b56730deae9deb1a9069e58fad",
+      "url": "https://github.com/JasonStys/ai-security-evaluation-lab/blob/ce8e0df93fd3efa581d5ae49805bf3f80c5608b1/aisec/desktop_state.py#L217"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Actual installed workflows",
+      "observed": "Full original domain, review and export controls passed two normal native launches; all 5 saved bundles retained exact original bytes.",
+      "result": "Passed"
+    },
+    {
+      "name": "Old-to-new profile",
+      "observed": "The actual installed 1.1.0 app created a synthetic profile; installed 1.1.1 reopened it and retained all 5 exact bundles without reset.",
+      "result": "Passed"
+    },
+    {
+      "name": "Source and distribution",
+      "observed": "Exact-main workflows and processed CodeQL passed with zero open main alerts. Five downloaded assets and installed files matched their verified SHA-256 identities.",
+      "result": "Verified"
+    },
+    {
+      "name": "PC and links",
+      "observed": "Existing links were backed up and retargeted with settings retained. Normal profiles and Docker were unchanged; default-profile shortcut activation remains separately untested.",
+      "result": "Verified"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "ooxmlSchema": "passed",
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "9771da553e6c4267cedaead3fdb0047f07634deb40cb9fa29a9e646215566168",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 2,
+        "sha256": "b4524c4eb4d680e874e6f9426c5f2353316bd25dbc9975f4724c13039e032598",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 3,
+        "sha256": "2235bc32fe5faf964a35b4711b3b715580c9d0f01d152900754b7f40c3cd0930",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      },
+      {
+        "page": 4,
+        "sha256": "01966976dcf0c2d5717d02cdbee022eb70928bb7dc6909abea0e59982150b67d",
+        "approved": true,
+        "method": "Individually inspected final page content"
+      }
+    ],
+    "checkedUtc": "2026-11-11T10:23:02.300156+00:00",
+    "method": "All final page content individually inspected by root or named peers; only exact pixel identity carries prior individual inspection."
+  }
+}
